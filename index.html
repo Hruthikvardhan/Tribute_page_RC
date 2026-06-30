@@ -1,0 +1,2294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ram Charan — The Global Icon</title>
+
+    <!-- Google Fonts: Display + Body pairing -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================
+       CSS CUSTOM PROPERTIES (Design Tokens)
+       ===================================================== */
+      :root {
+        /* Colors */
+        --color-bg: #0a0a0b;
+        --color-bg-secondary: #0f0f12;
+        --color-bg-card: #141418;
+        --color-bg-card-hover: #1a1a20;
+
+        --color-crimson: #c0392b;
+        --color-crimson-deep: #8b0000;
+        --color-crimson-glow: rgba(192, 57, 43, 0.25);
+        --color-gold: #d4af37;
+        --color-gold-light: #f0d060;
+        --color-gold-pale: #f5e07a;
+        --color-gold-glow: rgba(212, 175, 55, 0.2);
+
+        --color-text: #e8e4da;
+        --color-text-muted: #9a9186;
+        --color-text-dim: #5a564f;
+
+        --color-border: rgba(212, 175, 55, 0.15);
+        --color-border-bright: rgba(212, 175, 55, 0.5);
+
+        /* Typography */
+        --font-display: "Cinzel Decorative", serif;
+        --font-heading: "Cinzel", serif;
+        --font-body: "Lato", sans-serif;
+
+        /* Spacing Scale */
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 2rem;
+        --space-lg: 4rem;
+        --space-xl: 8rem;
+
+        /* Borders */
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 16px;
+
+        /* Transitions */
+        --transition-fast: 0.2s ease;
+        --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --transition-spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        /* Shadows */
+        --shadow-gold:
+          0 0 30px rgba(212, 175, 55, 0.15), 0 0 60px rgba(212, 175, 55, 0.08);
+        --shadow-crimson:
+          0 0 30px rgba(192, 57, 43, 0.2), 0 0 60px rgba(192, 57, 43, 0.1);
+        --shadow-card:
+          0 4px 24px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      /* =====================================================
+       CSS RESET & BASE
+       ===================================================== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-family: var(--font-body);
+        font-weight: 300;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      /* Grain texture overlay on entire page */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.6;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: var(--color-gold);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+      }
+
+      a:hover {
+        color: var(--color-gold-light);
+      }
+
+      /* =====================================================
+       UTILITY CLASSES
+       ===================================================== */
+      .u-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--space-md);
+      }
+
+      .u-section {
+        padding: var(--space-xl) 0;
+      }
+
+      .u-section-alt {
+        background-color: var(--color-bg-secondary);
+      }
+
+      /* =====================================================
+       SCROLL REVEAL ANIMATION
+       ===================================================== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .reveal.reveal--visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal--delay-1 {
+        transition-delay: 0.1s;
+      }
+      .reveal--delay-2 {
+        transition-delay: 0.2s;
+      }
+      .reveal--delay-3 {
+        transition-delay: 0.3s;
+      }
+      .reveal--delay-4 {
+        transition-delay: 0.4s;
+      }
+      .reveal--delay-5 {
+        transition-delay: 0.5s;
+      }
+
+      /* =====================================================
+       SECTION TITLES (shared)
+       ===================================================== */
+      .section-title {
+        font-family: var(--font-heading);
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        font-weight: 700;
+        color: var(--color-gold);
+        text-align: center;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: var(--space-xs);
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--color-crimson),
+          var(--color-gold)
+        );
+        margin: var(--space-xs) auto 0;
+        border-radius: 2px;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: var(--color-text-muted);
+        font-size: 1.05rem;
+        margin-top: var(--space-xs);
+        margin-bottom: var(--space-lg);
+        letter-spacing: 0.04em;
+        font-style: italic;
+      }
+
+      /* =====================================================
+       NAVBAR
+       ===================================================== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1.2rem 0;
+        transition:
+          background var(--transition-smooth),
+          box-shadow var(--transition-smooth),
+          padding var(--transition-smooth);
+      }
+
+      .navbar--scrolled {
+        background: rgba(10, 10, 11, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow:
+          0 2px 20px rgba(0, 0, 0, 0.6),
+          0 1px 0 var(--color-border);
+        padding: 0.8rem 0;
+      }
+
+      .navbar__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .navbar__brand {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: var(--color-gold);
+        letter-spacing: 0.05em;
+        text-shadow: var(--shadow-gold);
+      }
+
+      .navbar__nav {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        list-style: none;
+      }
+
+      .navbar__link {
+        font-family: var(--font-heading);
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        transition: color var(--transition-fast);
+        position: relative;
+        padding-bottom: 2px;
+      }
+
+      .navbar__link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--color-gold);
+        transition: width var(--transition-smooth);
+      }
+
+      .navbar__link:hover {
+        color: var(--color-gold);
+      }
+
+      .navbar__link:hover::after {
+        width: 100%;
+      }
+
+      .navbar__hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .navbar__hamburger-bar {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--color-gold);
+        border-radius: 2px;
+        transition:
+          transform var(--transition-smooth),
+          opacity var(--transition-fast);
+        transform-origin: center;
+      }
+
+      .navbar__hamburger.is-open .navbar__hamburger-bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      .navbar__hamburger.is-open .navbar__hamburger-bar:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .navbar__hamburger.is-open .navbar__hamburger-bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+
+      .navbar__mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 10, 11, 0.97);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        list-style: none;
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition-smooth);
+      }
+
+      .navbar__mobile-menu.is-open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .navbar__mobile-link {
+        font-family: var(--font-heading);
+        font-size: 1.6rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        transition:
+          color var(--transition-fast),
+          text-shadow var(--transition-fast);
+      }
+
+      .navbar__mobile-link:hover {
+        color: var(--color-gold);
+        text-shadow: 0 0 20px var(--color-gold-glow);
+      }
+
+      /* =====================================================
+       HERO SECTION
+       ===================================================== */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .hero__background {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 80% 60% at 50% 0%,
+            rgba(192, 57, 43, 0.18) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 20% 100%,
+            rgba(212, 175, 55, 0.08) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 50% 50% at 80% 80%,
+            rgba(139, 0, 0, 0.12) 0%,
+            transparent 55%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(10, 10, 11, 0.6) 0%,
+            rgba(10, 10, 11, 0.2) 40%,
+            rgba(10, 10, 11, 0.2) 60%,
+            rgba(10, 10, 11, 1) 100%
+          ),
+          url("rc.jpg");
+        background-size: cover;
+        opacity: 0.2;
+        background-position: center top;
+        background-repeat: no-repeat;
+        z-index: 0;
+      }
+
+      .hero__particles {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .hero__particle {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--color-gold);
+        animation: particle-float linear infinite;
+        opacity: 0;
+      }
+
+      @keyframes particle-float {
+        0% {
+          transform: translateY(100vh) scale(0);
+          opacity: 0;
+        }
+        5% {
+          opacity: 0.6;
+        }
+        90% {
+          opacity: 0.4;
+        }
+        100% {
+          transform: translateY(-10vh) scale(1);
+          opacity: 0;
+        }
+      }
+
+      .hero__lines {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .hero__line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--color-border),
+          var(--color-gold-glow),
+          var(--color-border),
+          transparent
+        );
+      }
+
+      .hero__line--1 {
+        top: 30%;
+      }
+      .hero__line--2 {
+        top: 70%;
+      }
+
+      .hero__content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 2rem;
+        max-width: 900px;
+      }
+
+      .hero__eyebrow {
+        font-family: var(--font-heading);
+        font-size: clamp(0.7rem, 2vw, 0.9rem);
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--color-crimson);
+        margin-bottom: 1.5rem;
+        animation: fade-slide-up 1s ease 0.3s both;
+      }
+
+      .hero__name {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 10vw, 7.5rem);
+        font-weight: 900;
+        line-height: 0.9;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        background: linear-gradient(
+          135deg,
+          var(--color-gold-pale) 0%,
+          var(--color-gold) 40%,
+          var(--color-gold-light) 60%,
+          var(--color-gold) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: none;
+        filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.3));
+        animation: fade-slide-up 1s ease 0.5s both;
+        margin-bottom: 0.3em;
+      }
+
+      .hero__tagline {
+        font-family: var(--font-heading);
+        font-size: clamp(1rem, 3vw, 1.7rem);
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        animation: fade-slide-up 1s ease 0.7s both;
+        margin-bottom: var(--space-md);
+      }
+
+      .hero__tagline span {
+        color: var(--color-crimson);
+        font-weight: 700;
+      }
+
+      .hero__divider {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        justify-content: center;
+        margin-bottom: var(--space-md);
+        animation: fade-slide-up 1s ease 0.9s both;
+      }
+
+      .hero__divider-line {
+        flex: 1;
+        max-width: 120px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--color-gold));
+      }
+
+      .hero__divider-line--right {
+        background: linear-gradient(90deg, var(--color-gold), transparent);
+      }
+
+      .hero__divider-diamond {
+        width: 8px;
+        height: 8px;
+        background: var(--color-gold);
+        transform: rotate(45deg);
+        box-shadow: 0 0 12px var(--color-gold);
+      }
+
+      .hero__stats {
+        display: flex;
+        justify-content: center;
+        gap: clamp(1.5rem, 5vw, 4rem);
+        animation: fade-slide-up 1s ease 1.1s both;
+        flex-wrap: wrap;
+      }
+
+      .hero__stat-item {
+        text-align: center;
+      }
+
+      .hero__stat-number {
+        font-family: var(--font-display);
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        color: var(--color-crimson);
+        line-height: 1;
+        display: block;
+      }
+
+      .hero__stat-label {
+        font-family: var(--font-heading);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--color-text-dim);
+        margin-top: 4px;
+        display: block;
+      }
+
+      .hero__scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        animation: fade-slide-up 1s ease 1.5s both;
+        cursor: pointer;
+      }
+
+      .hero__scroll-text {
+        font-family: var(--font-heading);
+        font-size: 0.65rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--color-text-dim);
+      }
+
+      .hero__scroll-arrow {
+        width: 20px;
+        height: 20px;
+        border-right: 1px solid var(--color-gold);
+        border-bottom: 1px solid var(--color-gold);
+        transform: rotate(45deg);
+        animation: bounce 2s ease infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: rotate(45deg) translateY(0);
+        }
+        50% {
+          transform: rotate(45deg) translateY(6px);
+        }
+      }
+
+      @keyframes fade-slide-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =====================================================
+       ABOUT / BIOGRAPHY SECTION
+       ===================================================== */
+      .about__grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: var(--space-lg);
+        align-items: start;
+      }
+
+      .about__portrait-frame {
+        position: relative;
+      }
+
+      .about__portrait-frame::before {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        background: linear-gradient(
+          135deg,
+          var(--color-crimson),
+          var(--color-gold),
+          var(--color-crimson-deep)
+        );
+        border-radius: var(--radius-md);
+        z-index: -1;
+        animation: border-glow 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes border-glow {
+        from {
+          opacity: 0.5;
+          filter: blur(2px);
+        }
+        to {
+          opacity: 1;
+          filter: blur(5px);
+        }
+      }
+      .about__portrait-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--radius-md);
+        z-index: 1;
+      }
+
+      .about__portrait-placeholder {
+        width: 100%;
+        aspect-ratio: 3/4;
+        background: linear-gradient(
+          160deg,
+          var(--color-bg-card) 0%,
+          var(--color-crimson-deep) 50%,
+          var(--color-bg-card) 100%
+        );
+        border-radius: var(--radius-md);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        font-family: var(--font-display);
+        font-size: 5rem;
+        color: var(--color-gold);
+        text-shadow: 0 0 40px var(--color-gold);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about__portrait-placeholder::after {
+        content: "RC";
+        font-family: var(--font-display);
+        font-size: 7rem;
+        font-weight: 900;
+        color: rgba(212, 175, 55, 0.12);
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        line-height: 1;
+      }
+
+      .about__portrait-caption {
+        font-family: var(--font-heading);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--color-text-dim);
+        text-align: center;
+        margin-top: var(--space-sm);
+      }
+
+      .about__title {
+        font-family: var(--font-heading);
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 700;
+        color: var(--color-gold);
+        margin-bottom: var(--space-sm);
+        letter-spacing: 0.04em;
+      }
+
+      .about__text {
+        color: var(--color-text-muted);
+        line-height: 1.9;
+        font-size: 1.02rem;
+        margin-bottom: var(--space-sm);
+      }
+
+      .about__text strong {
+        color: var(--color-text);
+        font-weight: 700;
+      }
+
+      .about__facts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-sm);
+        margin-top: var(--space-md);
+      }
+
+      .about__fact {
+        background: var(--color-bg-card);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: 0.8rem 1rem;
+        transition:
+          border-color var(--transition-fast),
+          background var(--transition-fast);
+      }
+
+      .about__fact:hover {
+        border-color: var(--color-border-bright);
+        background: var(--color-bg-card-hover);
+      }
+
+      .about__fact-label {
+        font-family: var(--font-heading);
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--color-text-dim);
+        display: block;
+        margin-bottom: 2px;
+      }
+
+      .about__fact-value {
+        font-family: var(--font-heading);
+        font-size: 0.9rem;
+        color: var(--color-gold);
+        font-weight: 600;
+      }
+
+      /* =====================================================
+       TIMELINE SECTION
+       ===================================================== */
+      .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          var(--color-crimson) 10%,
+          var(--color-gold) 50%,
+          var(--color-crimson) 90%,
+          transparent
+        );
+        transform: translateX(-50%);
+      }
+
+      .timeline__item {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 0 2rem;
+        margin-bottom: 3rem;
+        align-items: start;
+      }
+
+      .timeline__item:nth-child(odd) .timeline__content {
+        grid-column: 1;
+        text-align: right;
+      }
+
+      .timeline__item:nth-child(odd) .timeline__spacer {
+        grid-column: 3;
+      }
+
+      .timeline__item:nth-child(even) .timeline__content {
+        grid-column: 3;
+        text-align: left;
+      }
+
+      .timeline__item:nth-child(even) .timeline__spacer {
+        grid-column: 1;
+      }
+
+      .timeline__dot-wrap {
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 4px;
+      }
+
+      .timeline__dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--color-crimson);
+        border: 2px solid var(--color-gold);
+        flex-shrink: 0;
+        box-shadow: 0 0 10px var(--color-crimson-glow);
+        transition:
+          box-shadow var(--transition-fast),
+          background var(--transition-fast);
+      }
+
+      .timeline__item:hover .timeline__dot {
+        background: var(--color-gold);
+        box-shadow: 0 0 18px var(--color-gold-glow);
+      }
+
+      .timeline__content {
+        background: var(--color-bg-card);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: 1.2rem 1.4rem;
+        transition:
+          border-color var(--transition-smooth),
+          box-shadow var(--transition-smooth),
+          transform var(--transition-smooth);
+      }
+
+      .timeline__content:hover {
+        border-color: var(--color-gold);
+        box-shadow: var(--shadow-gold);
+        transform: translateY(-3px);
+      }
+
+      .timeline__year {
+        font-family: var(--font-display);
+        font-size: 0.85rem;
+        color: var(--color-crimson);
+        letter-spacing: 0.1em;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .timeline__movie {
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-gold);
+        margin-bottom: 4px;
+        letter-spacing: 0.03em;
+      }
+
+      .timeline__role {
+        font-size: 0.8rem;
+        color: var(--color-text-dim);
+        font-family: var(--font-heading);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline__desc {
+        font-size: 0.88rem;
+        color: var(--color-text-muted);
+        line-height: 1.65;
+      }
+
+      .timeline__badge {
+        display: inline-block;
+        font-family: var(--font-heading);
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 2px 8px;
+        background: linear-gradient(
+          90deg,
+          var(--color-crimson),
+          var(--color-crimson-deep)
+        );
+        color: var(--color-gold-pale);
+        border-radius: 20px;
+        margin-top: 6px;
+      }
+
+      .timeline__spacer {
+      }
+
+      /* =====================================================
+       DIALOGUES / QUOTES SECTION
+       ===================================================== */
+      .quotes__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-md);
+      }
+
+      .quote-card {
+        background: var(--color-bg-card);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: var(--space-md) 1.8rem;
+        position: relative;
+        overflow: hidden;
+        transition:
+          border-color var(--transition-smooth),
+          box-shadow var(--transition-smooth),
+          transform var(--transition-smooth);
+      }
+
+      .quote-card::before {
+        content: '"';
+        font-family: var(--font-display);
+        font-size: 8rem;
+        line-height: 0.6;
+        color: rgba(212, 175, 55, 0.06);
+        position: absolute;
+        top: 1rem;
+        left: 0.5rem;
+        pointer-events: none;
+      }
+
+      .quote-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--color-crimson),
+          var(--color-gold),
+          var(--color-crimson)
+        );
+        opacity: 0;
+        transition: opacity var(--transition-smooth);
+      }
+
+      .quote-card:hover {
+        border-color: var(--color-border-bright);
+        box-shadow: var(--shadow-gold);
+        transform: translateY(-5px);
+      }
+
+      .quote-card:hover::after {
+        opacity: 1;
+      }
+
+      .quote-card__text {
+        font-family: var(--font-heading);
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+        color: var(--color-text);
+        line-height: 1.7;
+        margin-bottom: var(--space-sm);
+        position: relative;
+        z-index: 1;
+        font-style: italic;
+      }
+
+      .quote-card__source {
+        font-family: var(--font-heading);
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-gold);
+      }
+
+      .quote-card__source::before {
+        content: "— ";
+        color: var(--color-crimson);
+      }
+
+      .quote-featured {
+        grid-column: 1 / -1;
+        border-color: rgba(192, 57, 43, 0.3);
+        background: linear-gradient(
+          135deg,
+          var(--color-bg-card) 0%,
+          rgba(139, 0, 0, 0.08) 100%
+        );
+      }
+
+      .quote-featured .quote-card__text {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        color: var(--color-gold-pale);
+      }
+
+      /* =====================================================
+       AWARDS SECTION
+       ===================================================== */
+      .awards__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: var(--space-sm);
+      }
+
+      .award-card {
+        background: var(--color-bg-card);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: 1.4rem;
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        transition:
+          border-color var(--transition-smooth),
+          transform var(--transition-smooth),
+          box-shadow var(--transition-smooth);
+      }
+
+      .award-card:hover {
+        border-color: var(--color-gold);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-gold);
+      }
+
+      .award-card__icon {
+        font-size: 2rem;
+        flex-shrink: 0;
+        line-height: 1;
+        filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+      }
+
+      .award-card__title {
+        font-family: var(--font-heading);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--color-gold);
+        margin-bottom: 2px;
+        letter-spacing: 0.03em;
+      }
+
+      .award-card__detail {
+        font-size: 0.82rem;
+        color: var(--color-text-muted);
+        line-height: 1.5;
+      }
+
+      .award-card__year {
+        font-family: var(--font-heading);
+        font-size: 0.68rem;
+        color: var(--color-crimson);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-top: 4px;
+        display: block;
+      }
+
+      /* =====================================================
+       LEGACY / GLOBAL IMPACT SECTION
+       ===================================================== */
+      .legacy__content {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: var(--space-lg);
+        align-items: center;
+      }
+
+      .legacy__headline {
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+        color: var(--color-gold);
+        line-height: 1.2;
+        margin-bottom: var(--space-sm);
+      }
+
+      .legacy__headline span {
+        color: var(--color-crimson);
+      }
+
+      .legacy__body {
+        color: var(--color-text-muted);
+        font-size: 1.02rem;
+        line-height: 1.85;
+        margin-bottom: var(--space-sm);
+      }
+
+      .legacy__milestones {
+        list-style: none;
+        margin-top: var(--space-md);
+      }
+
+      .legacy__milestone {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid var(--color-border);
+        font-size: 0.92rem;
+        color: var(--color-text-muted);
+        transition: color var(--transition-fast);
+      }
+
+      .legacy__milestone:last-child {
+        border-bottom: none;
+      }
+      .legacy__milestone:hover {
+        color: var(--color-text);
+      }
+
+      .legacy__milestone-bullet {
+        width: 6px;
+        height: 6px;
+        background: var(--color-crimson);
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 8px;
+      }
+
+      .legacy__stats-panel {
+        background: var(--color-bg-card);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-md);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-sm);
+      }
+
+      .legacy__stat {
+        text-align: center;
+        padding: 1.2rem;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        background: var(--color-bg-secondary);
+        transition:
+          border-color var(--transition-fast),
+          transform var(--transition-fast);
+      }
+
+      .legacy__stat:hover {
+        border-color: var(--color-crimson);
+        transform: scale(1.04);
+      }
+
+      .legacy__stat-number {
+        font-family: var(--font-display);
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        background: linear-gradient(
+          135deg,
+          var(--color-gold-pale),
+          var(--color-gold)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+        display: block;
+      }
+
+      .legacy__stat-label {
+        font-family: var(--font-heading);
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-text-dim);
+        margin-top: 4px;
+        display: block;
+      }
+
+      .legacy__oscar-callout {
+        grid-column: 1 / -1;
+        background: linear-gradient(
+          135deg,
+          rgba(192, 57, 43, 0.12),
+          rgba(212, 175, 55, 0.06)
+        );
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: var(--radius-md);
+        padding: 1.2rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: var(--space-sm);
+      }
+
+      .legacy__oscar-icon {
+        font-size: 2.2rem;
+        flex-shrink: 0;
+      }
+
+      .legacy__oscar-text {
+        font-family: var(--font-heading);
+        font-size: 0.88rem;
+        color: var(--color-gold-pale);
+        line-height: 1.5;
+      }
+
+      .legacy__oscar-text strong {
+        color: var(--color-gold);
+      }
+
+      /* =====================================================
+       FOOTER
+       ===================================================== */
+      .footer {
+        background: var(--color-bg-secondary);
+        border-top: 1px solid var(--color-border);
+        padding: var(--space-lg) 0 var(--space-md);
+      }
+
+      .footer__inner {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+      }
+
+      .footer__brand-name {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        color: var(--color-gold);
+        margin-bottom: 0.6rem;
+      }
+
+      .footer__brand-desc {
+        font-size: 0.88rem;
+        color: var(--color-text-dim);
+        line-height: 1.6;
+        max-width: 260px;
+      }
+
+      .footer__col-title {
+        font-family: var(--font-heading);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--color-text-muted);
+        margin-bottom: 1rem;
+      }
+
+      .footer__links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .footer__link {
+        font-size: 0.88rem;
+        color: var(--color-text-dim);
+        transition:
+          color var(--transition-fast),
+          padding-left var(--transition-fast);
+      }
+
+      .footer__link:hover {
+        color: var(--color-gold);
+        padding-left: 6px;
+      }
+
+      .footer__bottom {
+        border-top: 1px solid var(--color-border);
+        padding-top: var(--space-sm);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+      }
+
+      .footer__copy {
+        font-size: 0.78rem;
+        color: var(--color-text-dim);
+        letter-spacing: 0.04em;
+      }
+
+      .footer__copy span {
+        color: var(--color-crimson);
+      }
+
+      .footer__socials {
+        display: flex;
+        gap: var(--space-sm);
+      }
+
+      .footer__social-link {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--color-border);
+        border-radius: 50%;
+        font-family: var(--font-heading);
+        font-size: 0.7rem;
+        color: var(--color-text-dim);
+        transition:
+          border-color var(--transition-fast),
+          color var(--transition-fast),
+          box-shadow var(--transition-fast);
+        letter-spacing: 0;
+      }
+
+      .footer__social-link:hover {
+        border-color: var(--color-gold);
+        color: var(--color-gold);
+        box-shadow: 0 0 10px var(--color-gold-glow);
+      }
+
+      /* =====================================================
+       RESPONSIVE BREAKPOINTS
+       ===================================================== */
+      @media (max-width: 1024px) {
+        .about__grid {
+          grid-template-columns: 1fr 1.8fr;
+          gap: var(--space-md);
+        }
+        .legacy__content {
+          grid-template-columns: 1fr;
+        }
+        .footer__inner {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar__nav {
+          display: none;
+        }
+        .navbar__hamburger {
+          display: flex;
+        }
+        .navbar__mobile-menu {
+          display: flex;
+        }
+        .about__grid {
+          grid-template-columns: 1fr;
+        }
+        .about__portrait-frame {
+          max-width: 280px;
+          margin: 0 auto;
+        }
+        .timeline::before {
+          left: 20px;
+        }
+        .timeline__item {
+          grid-template-columns: 40px 1fr;
+          gap: 0 1rem;
+        }
+        .timeline__item:nth-child(odd) .timeline__content,
+        .timeline__item:nth-child(even) .timeline__content {
+          grid-column: 2;
+          text-align: left;
+        }
+        .timeline__dot-wrap {
+          grid-column: 1;
+        }
+        .timeline__item:nth-child(odd) .timeline__spacer,
+        .timeline__item:nth-child(even) .timeline__spacer {
+          display: none;
+        }
+        .footer__inner {
+          grid-template-columns: 1fr;
+        }
+        .hero__stats {
+          gap: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        :root {
+          --space-xl: 5rem;
+          --space-lg: 2.5rem;
+        }
+        .about__facts {
+          grid-template-columns: 1fr;
+        }
+        .legacy__stats-panel {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer__bottom {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar" id="navbar" role="banner">
+      <div class="u-container navbar__inner">
+        <a href="#home" class="navbar__brand" aria-label="Ram Charan – Home"
+          >RC</a
+        >
+        <nav aria-label="Main navigation">
+          <ul class="navbar__nav">
+            <li><a href="#about" class="navbar__link">About</a></li>
+            <li><a href="#timeline" class="navbar__link">Filmography</a></li>
+            <li><a href="#quotes" class="navbar__link">Dialogues</a></li>
+            <li><a href="#awards" class="navbar__link">Awards</a></li>
+            <li><a href="#legacy" class="navbar__link">Legacy</a></li>
+          </ul>
+        </nav>
+        <button
+          class="navbar__hamburger"
+          id="hamburger"
+          aria-label="Open mobile menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <span class="navbar__hamburger-bar"></span>
+          <span class="navbar__hamburger-bar"></span>
+          <span class="navbar__hamburger-bar"></span>
+        </button>
+      </div>
+    </header>
+
+    <ul
+      class="navbar__mobile-menu"
+      id="mobileMenu"
+      role="navigation"
+      aria-label="Mobile navigation"
+    >
+      <li><a href="#about" class="navbar__mobile-link">About</a></li>
+      <li><a href="#timeline" class="navbar__mobile-link">Filmography</a></li>
+      <li><a href="#quotes" class="navbar__mobile-link">Dialogues</a></li>
+      <li><a href="#awards" class="navbar__mobile-link">Awards</a></li>
+      <li><a href="#legacy" class="navbar__mobile-link">Legacy</a></li>
+    </ul>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="home" aria-label="Hero">
+        <div class="hero__background" aria-hidden="true"></div>
+        <div
+          class="hero__particles"
+          id="heroParticles"
+          aria-hidden="true"
+        ></div>
+        <div class="hero__lines" aria-hidden="true">
+          <div class="hero__line hero__line--1"></div>
+          <div class="hero__line hero__line--2"></div>
+        </div>
+        <div class="hero__content">
+          <p class="hero__eyebrow">Born to Rule the Screen</p>
+          <h1 class="hero__name">Ram Charan</h1>
+          <p class="hero__tagline">
+            Actor &nbsp;·&nbsp; Entrepreneur &nbsp;·&nbsp;
+            <span>Global Icon</span>
+          </p>
+          <div class="hero__divider" aria-hidden="true">
+            <span class="hero__divider-line"></span>
+            <span class="hero__divider-diamond"></span>
+            <span class="hero__divider-line hero__divider-line--right"></span>
+          </div>
+          <div class="hero__stats" role="list" aria-label="Career highlights">
+            <div class="hero__stat-item" role="listitem">
+              <span class="hero__stat-number">18+</span>
+              <span class="hero__stat-label">Years in Cinema</span>
+            </div>
+            <div class="hero__stat-item" role="listitem">
+              <span class="hero__stat-number">16+</span>
+              <span class="hero__stat-label">Movies</span>
+            </div>
+            <div class="hero__stat-item" role="listitem">
+              <span class="hero__stat-number">1</span>
+              <span class="hero__stat-label">Oscar Victory</span>
+            </div>
+            <div class="hero__stat-item" role="listitem">
+              <span class="hero__stat-number">∞</span>
+              <span class="hero__stat-label">Legacy</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero__scroll-indicator" aria-label="Scroll down">
+          <span class="hero__scroll-text">Scroll</span>
+          <span class="hero__scroll-arrow" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="u-section" id="about" aria-labelledby="about-title">
+        <div class="u-container">
+          <h2 class="section-title reveal" id="about-title">
+            The Man. The Legend.
+          </h2>
+          <p class="section-subtitle reveal reveal--delay-1">
+            From Tollywood royalty to global cinema icon
+          </p>
+          <div class="about__grid">
+            <div class="about__portrait-frame reveal reveal--delay-1">
+              <div class="about__portrait-placeholder">
+                <img
+                  src="rc-portrait.jpg"
+                  alt="Ram Charan"
+                  class="about__portrait-img"
+                />
+              </div>
+              <p class="about__portrait-caption">Ram Charan Teja · Born 1985</p>
+            </div>
+            <div class="about__text-block">
+              <h3 class="about__title reveal reveal--delay-2">
+                Konidela Ram Charan Teja
+              </h3>
+              <p class="about__text reveal reveal--delay-2">
+                Born on <strong>27 March 1985</strong> in Chennai, Tamil Nadu,
+                Ram Charan is the son of legendary Telugu megastar
+                <strong>Chiranjeevi</strong> and <strong>Surekha</strong>.
+                Carrying the weight of a cinematic dynasty yet forging his own
+                trail, he has emerged as one of Indian cinema's most
+                electrifying and bankable stars.
+              </p>
+              <p class="about__text reveal reveal--delay-3">
+                Charan made his <strong>acting debut in 2007</strong> with
+                <em>Chirutha</em>, directed by Puri Jagannadh. What followed was
+                a filmography studded with record-breaking blockbusters — from
+                <strong>Magadheera</strong> (2009) to
+                <strong>Rangasthalam</strong> (2018) to the globally celebrated
+                <strong>RRR</strong> (2022).
+              </p>
+              <p class="about__text reveal reveal--delay-3">
+                Beyond acting, Charan is an accomplished dancer, trained under
+                master choreographers. He is also the founder of
+                <strong>Konidela Production Company</strong> and co-owner of
+                Hyderabad FC (ISL), a polo player, and a passionate equestrian.
+              </p>
+              <div class="about__facts" role="list" aria-label="Quick facts">
+                <div class="about__fact reveal reveal--delay-2">
+                  <span class="about__fact-label">Born</span>
+                  <span class="about__fact-value">27 March 1985, Chennai</span>
+                </div>
+                <div class="about__fact reveal reveal--delay-2">
+                  <span class="about__fact-label">Debut Film</span>
+                  <span class="about__fact-value">Chirutha (2007)</span>
+                </div>
+                <div class="about__fact reveal reveal--delay-3">
+                  <span class="about__fact-label">Father</span>
+                  <span class="about__fact-value">Megastar Chiranjeevi</span>
+                </div>
+                <div class="about__fact reveal reveal--delay-3">
+                  <span class="about__fact-label">Industry</span>
+                  <span class="about__fact-value">Telugu / Pan-India</span>
+                </div>
+                <div class="about__fact reveal reveal--delay-4">
+                  <span class="about__fact-label">Highest Grossing</span>
+                  <span class="about__fact-value">RRR — ₹1,200+ Cr</span>
+                </div>
+                <div class="about__fact reveal reveal--delay-4">
+                  <span class="about__fact-label">Oscar Moment</span>
+                  <span class="about__fact-value">Naatu Naatu — 2023</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section
+        class="u-section u-section-alt"
+        id="timeline"
+        aria-labelledby="timeline-title"
+      >
+        <div class="u-container">
+          <h2 class="section-title reveal" id="timeline-title">
+            Blockbuster Journey
+          </h2>
+          <p class="section-subtitle reveal reveal--delay-1">
+            A legacy written in fire, soil and starlight
+          </p>
+          <div class="timeline" role="list" aria-label="Career timeline">
+            <div class="timeline__item reveal" role="listitem">
+              <div class="timeline__content">
+                <span class="timeline__year">2007</span>
+                <h3 class="timeline__movie">Chirutha</h3>
+                <p class="timeline__role">Role: Raju / Dir. Puri Jagannadh</p>
+                <p class="timeline__desc">
+                  A blazing debut. The high-octane action entertainer introduced
+                  a new mass hero to Tollywood. Ram Charan's screen presence
+                  signalled a dynasty in the making.
+                </p>
+                <span class="timeline__badge">Debut Blockbuster</span>
+              </div>
+              <div class="timeline__dot-wrap" aria-hidden="true">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__spacer"></div>
+            </div>
+
+            <div class="timeline__item reveal reveal--delay-1" role="listitem">
+              <div class="timeline__spacer"></div>
+              <div class="timeline__dot-wrap" aria-hidden="true">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <span class="timeline__year">2009</span>
+                <h3 class="timeline__movie">Magadheera</h3>
+                <p class="timeline__role">
+                  Role: Kala Bhairava / Dir. S.S. Rajamouli
+                </p>
+                <p class="timeline__desc">
+                  A watershed moment in Indian cinema. The fantasy epic
+                  shattered box-office records, becoming the highest-grossing
+                  Telugu film of its time.
+                </p>
+                <span class="timeline__badge">Landmark Epic · ₹150 Cr+</span>
+              </div>
+            </div>
+
+            <div class="timeline__item reveal" role="listitem">
+              <div class="timeline__content">
+                <span class="timeline__year">2012</span>
+                <h3 class="timeline__movie">Racha</h3>
+                <p class="timeline__role">Role: Arjun / Dir. Sampath Nandi</p>
+                <p class="timeline__desc">
+                  A stylish, adrenaline-fuelled mass entertainer where Charan
+                  perfected his larger-than-life hero persona. Memorable action
+                  sequences made it a cult favourite.
+                </p>
+                <span class="timeline__badge">Mass Blockbuster</span>
+              </div>
+              <div class="timeline__dot-wrap" aria-hidden="true">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__spacer"></div>
+            </div>
+
+            <div class="timeline__item reveal reveal--delay-1" role="listitem">
+              <div class="timeline__spacer"></div>
+              <div class="timeline__dot-wrap" aria-hidden="true">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <span class="timeline__year">2013</span>
+                <h3 class="timeline__movie">Naayak</h3>
+                <p class="timeline__role">
+                  Role: Arjun / Dir. Vakkantham Vamsi
+                </p>
+                <p class="timeline__desc">
+                  Political action drama where Charan delivered raw, intense
+                  performances complemented by some of the most quoted dialogues
+                  of his career.
+                </p>
+                <span class="timeline__badge">Political Actioner</span>
+              </div>
+            </div>
+
+            <div class="timeline__item reveal" role="listitem">
+              <div class="timeline__content">
+                <span class="timeline__year">2018</span>
+                <h3 class="timeline__movie">Rangasthalam</h3>
+                <p class="timeline__role">Role: Chitti Babu / Dir. Sukumar</p>
+                <p class="timeline__desc">
+                  A masterpiece. Playing a hearing-impaired man in rural 1980s
+                  Andhra Pradesh, Charan delivered the performance of his life —
+                  redefining his artistic range.
+                </p>
+                <span class="timeline__badge"
+                  >Career Best · Filmfare Best Actor</span
+                >
+              </div>
+              <div class="timeline__dot-wrap" aria-hidden="true">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__spacer"></div>
+            </div>
+
+            <div class="timeline__item reveal reveal--delay-1" role="listitem">
+              <div class="timeline__spacer"></div>
+              <div class="timeline__dot-wrap" aria-hidden="true">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <span class="timeline__year">2022</span>
+                <h3 class="timeline__movie">RRR</h3>
+                <p class="timeline__role">
+                  Role: Alluri Sitarama Raju / Dir. S.S. Rajamouli
+                </p>
+                <p class="timeline__desc">
+                  A global phenomenon. Naatu Naatu won the
+                  <strong>Academy Award for Best Original Song</strong> — the
+                  first Oscar for a Telugu film. Charan's performance captivated
+                  the world stage.
+                </p>
+                <span class="timeline__badge"
+                  >🏆 Oscar Winner · ₹1,200 Cr+</span
+                >
+              </div>
+            </div>
+
+            <div class="timeline__item reveal" role="listitem">
+              <div class="timeline__content">
+                <span class="timeline__year">2024</span>
+                <h3 class="timeline__movie">Game Changer</h3>
+                <p class="timeline__role">Role: Ram Nandan / Dir. Shankar</p>
+                <p class="timeline__desc">
+                  A grand political action spectacle directed by maverick
+                  filmmaker Shankar. Ram Charan plays a dynamic IAS officer
+                  fighting corruption — a Pan-India masala extravaganza.
+                </p>
+                <span class="timeline__badge">Pan-India Release</span>
+              </div>
+              <div class="timeline__dot-wrap" aria-hidden="true">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__spacer"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUOTES -->
+      <section class="u-section" id="quotes" aria-labelledby="quotes-title">
+        <div class="u-container">
+          <h2 class="section-title reveal" id="quotes-title">
+            Words That Echo
+          </h2>
+          <p class="section-subtitle reveal reveal--delay-1">
+            Iconic dialogues that fans carry in their hearts
+          </p>
+          <div class="quotes__grid">
+            <article class="quote-card quote-featured reveal">
+              <p class="quote-card__text">
+                "History is written by those who act in the present, not those
+                who study the past."
+              </p>
+              <span class="quote-card__source">RRR — Alluri Sitarama Raju</span>
+            </article>
+            <article class="quote-card reveal reveal--delay-1">
+              <p class="quote-card__text">
+                "Nenu matladite adhe jarugutuundi. Em cheppanu ante adhe
+                jarugutuundi."<br /><em
+                  style="color: var(--color-text-dim); font-size: 0.85em"
+                  >(What I say happens. What I don't say also happens.)</em
+                >
+              </p>
+              <span class="quote-card__source">Racha — Arjun</span>
+            </article>
+            <article class="quote-card reveal reveal--delay-2">
+              <p class="quote-card__text">
+                "Naa peru Chitti Babu. Nenu cheppedi ela untundi ante… Andaru
+                antaru. Nenu anutanu."<br /><em
+                  style="color: var(--color-text-dim); font-size: 0.85em"
+                  >(My name is Chitti Babu. Whatever I say, so it shall be.)</em
+                >
+              </p>
+              <span class="quote-card__source">Rangasthalam — Chitti Babu</span>
+            </article>
+            <article class="quote-card reveal reveal--delay-1">
+              <p class="quote-card__text">
+                "Yuddhame naa janam. Gadda ledante, neella meeda kuda
+                naddatanu."<br /><em
+                  style="color: var(--color-text-dim); font-size: 0.85em"
+                  >(War is my life. If there is no land, I walk on water.)</em
+                >
+              </p>
+              <span class="quote-card__source">Magadheera — Kala Bhairava</span>
+            </article>
+            <article class="quote-card reveal reveal--delay-2">
+              <p class="quote-card__text">
+                "Game ni maarchadam kaadu. Game changer kaavadam naaku
+                ishtam."<br /><em
+                  style="color: var(--color-text-dim); font-size: 0.85em"
+                  >(I don't change the game. I become the game changer.)</em
+                >
+              </p>
+              <span class="quote-card__source">Game Changer — Ram Nandan</span>
+            </article>
+            <article class="quote-card reveal reveal--delay-3">
+              <p class="quote-card__text">
+                "Manam chestam antే, chestam. Manam chesam ante, chesam."<br /><em
+                  style="color: var(--color-text-dim); font-size: 0.85em"
+                  >(If we say we'll do it, we will. If we say we did it, we
+                  did.)</em
+                >
+              </p>
+              <span class="quote-card__source">Naayak — Arjun</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- AWARDS -->
+      <section
+        class="u-section u-section-alt"
+        id="awards"
+        aria-labelledby="awards-title"
+      >
+        <div class="u-container">
+          <h2 class="section-title reveal" id="awards-title">
+            Honours & Glory
+          </h2>
+          <p class="section-subtitle reveal reveal--delay-1">
+            A trophy cabinet that spans nations and generations
+          </p>
+          <div class="awards__grid" role="list" aria-label="Awards list">
+            <article class="award-card reveal" role="listitem">
+              <div class="award-card__icon" aria-hidden="true">🏆</div>
+              <div class="award-card__body">
+                <h3 class="award-card__title">Academy Award (Oscar)</h3>
+                <p class="award-card__detail">
+                  Best Original Song — "Naatu Naatu" from RRR. India's first
+                  Oscar in this category, a historic victory watched by
+                  billions.
+                </p>
+                <span class="award-card__year">2023</span>
+              </div>
+            </article>
+            <article class="award-card reveal reveal--delay-1" role="listitem">
+              <div class="award-card__icon" aria-hidden="true">🎬</div>
+              <div class="award-card__body">
+                <h3 class="award-card__title">Filmfare Award — Best Actor</h3>
+                <p class="award-card__detail">
+                  Won South India's most prestigious acting honour for his
+                  transformative performance in Rangasthalam.
+                </p>
+                <span class="award-card__year">2019</span>
+              </div>
+            </article>
+            <article class="award-card reveal reveal--delay-2" role="listitem">
+              <div class="award-card__icon" aria-hidden="true">🌟</div>
+              <div class="award-card__body">
+                <h3 class="award-card__title">SIIMA Award — Best Actor</h3>
+                <p class="award-card__detail">
+                  South Indian International Movie Award for outstanding
+                  performance, recognised multiple times across career highs.
+                </p>
+                <span class="award-card__year">Multiple Years</span>
+              </div>
+            </article>
+            <article class="award-card reveal" role="listitem">
+              <div class="award-card__icon" aria-hidden="true">🥇</div>
+              <div class="award-card__body">
+                <h3 class="award-card__title">
+                  Golden Globe — Best Non-English Film
+                </h3>
+                <p class="award-card__detail">
+                  RRR received the Golden Globe for Best Non-English Language
+                  Film, cementing its status as a global cinematic triumph.
+                </p>
+                <span class="award-card__year">2023</span>
+              </div>
+            </article>
+            <article class="award-card reveal reveal--delay-1" role="listitem">
+              <div class="award-card__icon" aria-hidden="true">🎖️</div>
+              <div class="award-card__body">
+                <h3 class="award-card__title">Nandi Award — Special Jury</h3>
+                <p class="award-card__detail">
+                  Awarded by the Government of Andhra Pradesh, one of the most
+                  coveted state film honours in the country.
+                </p>
+                <span class="award-card__year">Multiple Years</span>
+              </div>
+            </article>
+            <article class="award-card reveal reveal--delay-2" role="listitem">
+              <div class="award-card__icon" aria-hidden="true">🏇</div>
+              <div class="award-card__body">
+                <h3 class="award-card__title">Best Debut — Filmfare South</h3>
+                <p class="award-card__detail">
+                  Recognised for his spectacular debut in Chirutha, establishing
+                  him as the most promising new face in Telugu cinema.
+                </p>
+                <span class="award-card__year">2008</span>
+              </div>
+            </article>
+            <article class="award-card reveal" role="listitem">
+              <div class="award-card__icon" aria-hidden="true">💫</div>
+              <div class="award-card__body">
+                <h3 class="award-card__title">Critics' Choice Award</h3>
+                <p class="award-card__detail">
+                  International recognition at the Critics Choice Super Awards,
+                  a milestone showing Indian cinema's growing global stature.
+                </p>
+                <span class="award-card__year">2023</span>
+              </div>
+            </article>
+            <article class="award-card reveal reveal--delay-1" role="listitem">
+              <div class="award-card__icon" aria-hidden="true">🌍</div>
+              <div class="award-card__body">
+                <h3 class="award-card__title">TIME100 Cultural Recognition</h3>
+                <p class="award-card__detail">
+                  Named among the most culturally influential people globally in
+                  the aftermath of RRR's unprecedented international reception.
+                </p>
+                <span class="award-card__year">2023</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEGACY -->
+      <section class="u-section" id="legacy" aria-labelledby="legacy-title">
+        <div class="u-container">
+          <h2 class="section-title reveal" id="legacy-title">
+            Legacy & Global Impact
+          </h2>
+          <p class="section-subtitle reveal reveal--delay-1">
+            The torch that lit Indian cinema on the world stage
+          </p>
+          <div class="legacy__content">
+            <div class="legacy__text-block">
+              <h3 class="legacy__headline reveal">
+                Beyond Tollywood.<br /><span>Beyond Borders.</span>
+              </h3>
+              <p class="legacy__body reveal reveal--delay-1">
+                Ram Charan's career arc is not merely the story of a superstar —
+                it is the story of Indian regional cinema conquering the world.
+                From Hyderabad's Prasads IMAX to the Dolby Theatre in Hollywood,
+                the journey of RRR redefined what Indian films could achieve on
+                the global stage.
+              </p>
+              <p class="legacy__body reveal reveal--delay-2">
+                The Naatu Naatu sequence — Ram Charan and Jr. NTR dancing with
+                infectious energy — became a viral global phenomenon. When it
+                won the Academy Award for Best Original Song on 12 March 2023,
+                Ram Charan and the team's joy was felt across a billion hearts.
+              </p>
+              <ul
+                class="legacy__milestones reveal reveal--delay-2"
+                aria-label="Legacy milestones"
+              >
+                <li class="legacy__milestone">
+                  <span
+                    class="legacy__milestone-bullet"
+                    aria-hidden="true"
+                  ></span
+                  >RRR became India's all-time highest-grossing movie globally
+                  at the time of release
+                </li>
+                <li class="legacy__milestone">
+                  <span
+                    class="legacy__milestone-bullet"
+                    aria-hidden="true"
+                  ></span
+                  >Naatu Naatu charted in the US Billboard Hot 100 — a first for
+                  a Telugu song
+                </li>
+                <li class="legacy__milestone">
+                  <span
+                    class="legacy__milestone-bullet"
+                    aria-hidden="true"
+                  ></span
+                  >Hyderabad FC ownership — pioneering sportsmen-entertainer
+                  crossover in India
+                </li>
+                <li class="legacy__milestone">
+                  <span
+                    class="legacy__milestone-bullet"
+                    aria-hidden="true"
+                  ></span
+                  >Konidela Production Company bankrolling major Pan-India
+                  productions
+                </li>
+                <li class="legacy__milestone">
+                  <span
+                    class="legacy__milestone-bullet"
+                    aria-hidden="true"
+                  ></span
+                  >Addressed as a cultural ambassador at global film festivals
+                  worldwide
+                </li>
+                <li class="legacy__milestone">
+                  <span
+                    class="legacy__milestone-bullet"
+                    aria-hidden="true"
+                  ></span
+                  >Active philanthropist — education, rural development and
+                  disaster relief
+                </li>
+              </ul>
+            </div>
+            <div
+              class="legacy__stats-panel reveal reveal--delay-2"
+              role="list"
+              aria-label="Career statistics"
+            >
+              <div class="legacy__stat" role="listitem">
+                <span class="legacy__stat-number">₹1,200Cr</span>
+                <span class="legacy__stat-label">RRR Box Office</span>
+              </div>
+              <div class="legacy__stat" role="listitem">
+                <span class="legacy__stat-number">95+</span>
+                <span class="legacy__stat-label">Countries Screened</span>
+              </div>
+              <div class="legacy__stat" role="listitem">
+                <span class="legacy__stat-number">20+</span>
+                <span class="legacy__stat-label">Major Awards</span>
+              </div>
+              <div class="legacy__stat" role="listitem">
+                <span class="legacy__stat-number">1B+</span>
+                <span class="legacy__stat-label">YouTube Views</span>
+              </div>
+              <div class="legacy__oscar-callout reveal reveal--delay-3">
+                <span class="legacy__oscar-icon" aria-hidden="true">🏆</span>
+                <p class="legacy__oscar-text">
+                  <strong>12 March 2023, Dolby Theatre, Los Angeles</strong> —
+                  "Naatu Naatu" from RRR becomes the first Indian song to win an
+                  Academy Award for Best Original Song.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer" role="contentinfo">
+      <div class="u-container">
+        <div class="footer__inner">
+          <div class="footer__col">
+            <p class="footer__brand-name">Ram Charan</p>
+            <p class="footer__brand-desc">
+              A tribute to Tollywood's Global Icon — celebrating the star, the
+              artist, and the legacy he is still writing.
+            </p>
+          </div>
+          <div class="footer__col">
+            <h3 class="footer__col-title">Quick Links</h3>
+            <ul class="footer__links">
+              <li><a href="#about" class="footer__link">About</a></li>
+              <li><a href="#timeline" class="footer__link">Filmography</a></li>
+              <li><a href="#quotes" class="footer__link">Dialogues</a></li>
+              <li><a href="#awards" class="footer__link">Awards</a></li>
+              <li><a href="#legacy" class="footer__link">Legacy</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h3 class="footer__col-title">More Info</h3>
+            <ul class="footer__links">
+              <li>
+                <a
+                  href="https://en.wikipedia.org/wiki/Ram_Charan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__link"
+                  >Wikipedia</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.imdb.com/name/nm2514165/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__link"
+                  >IMDb Profile</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/alwaysramcharan/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__link"
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/AlwaysRamCharan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__link"
+                  >Twitter / X</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__copy">
+            &copy; 2024 Ram Charan Tribute Page. Made with
+            <span aria-label="love">♥</span> for Telugu Cinema. &nbsp;|&nbsp;
+            Fan Project — Not official.
+          </p>
+          <nav class="footer__socials" aria-label="Social media links">
+            <a
+              href="https://www.instagram.com/alwaysramcharan/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-link"
+              aria-label="Instagram"
+              >IG</a
+            >
+            <a
+              href="https://twitter.com/AlwaysRamCharan"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-link"
+              aria-label="Twitter"
+              >TW</a
+            >
+            <a
+              href="https://www.imdb.com/name/nm2514165/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-link"
+              aria-label="IMDb"
+              >DB</a
+            >
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* 1. NAVBAR scroll behaviour */
+      (function initNavbar() {
+        const navbar = document.getElementById("navbar");
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+        window.addEventListener(
+          "scroll",
+          () => {
+            navbar.classList.toggle("navbar--scrolled", window.scrollY > 60);
+          },
+          { passive: true },
+        );
+        function toggleMenu(open) {
+          hamburger.classList.toggle("is-open", open);
+          mobileMenu.classList.toggle("is-open", open);
+          hamburger.setAttribute("aria-expanded", String(open));
+          document.body.style.overflow = open ? "hidden" : "";
+        }
+        hamburger.addEventListener("click", () =>
+          toggleMenu(!hamburger.classList.contains("is-open")),
+        );
+        mobileMenu
+          .querySelectorAll(".navbar__mobile-link")
+          .forEach((l) => l.addEventListener("click", () => toggleMenu(false)));
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") toggleMenu(false);
+        });
+      })();
+
+      /* 2. HERO PARTICLES */
+      (function initParticles() {
+        const container = document.getElementById("heroParticles");
+        for (let i = 0; i < 40; i++) {
+          const p = document.createElement("div");
+          p.classList.add("hero__particle");
+          const size = Math.random() * 3 + 1;
+          p.style.width = size + "px";
+          p.style.height = size + "px";
+          p.style.left = Math.random() * 100 + "%";
+          const dur = Math.random() * 12 + 8;
+          p.style.animationDuration = dur + "s";
+          p.style.animationDelay = -(Math.random() * dur) + "s";
+          container.appendChild(p);
+        }
+      })();
+
+      /* 3. SCROLL REVEAL */
+      (function initScrollReveal() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("reveal--visible");
+                observer.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+        );
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => observer.observe(el));
+      })();
+
+      /* 4. SMOOTH SCROLL */
+      (function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach((a) => {
+          a.addEventListener("click", function (e) {
+            const t = document.querySelector(this.getAttribute("href"));
+            if (!t) return;
+            e.preventDefault();
+            window.scrollTo({
+              top:
+                t.getBoundingClientRect().top +
+                window.pageYOffset -
+                document.getElementById("navbar").offsetHeight,
+              behavior: "smooth",
+            });
+          });
+        });
+      })();
+
+      /* 5. ACTIVE NAV HIGHLIGHT */
+      (function initActiveNav() {
+        const sections = document.querySelectorAll("section[id]");
+        const links = document.querySelectorAll(".navbar__link");
+        window.addEventListener(
+          "scroll",
+          () => {
+            sections.forEach((s) => {
+              if (
+                window.scrollY >= s.offsetTop - 100 &&
+                window.scrollY < s.offsetTop + s.offsetHeight
+              ) {
+                links.forEach((l) => {
+                  l.style.color =
+                    l.getAttribute("href") === "#" + s.id
+                      ? "var(--color-gold)"
+                      : "";
+                });
+              }
+            });
+          },
+          { passive: true },
+        );
+      })();
+
+      /* 6. COUNTER ANIMATION */
+      (function initCounters() {
+        document.querySelectorAll(".hero__stat-number").forEach((el) => {
+          const raw = parseInt(el.textContent, 10);
+          if (isNaN(raw)) return;
+          const suffix = el.textContent.replace(String(raw), "");
+          let cur = 0;
+          const timer = setInterval(() => {
+            cur += Math.ceil(raw / 40);
+            if (cur >= raw) {
+              cur = raw;
+              clearInterval(timer);
+            }
+            el.textContent = cur + suffix;
+          }, 1500 / 40);
+        });
+      })();
+
+      /* 7. SCROLL INDICATOR */
+      (function () {
+        const ind = document.querySelector(".hero__scroll-indicator");
+        if (ind)
+          ind.addEventListener("click", () => {
+            const about = document.getElementById("about");
+            if (about)
+              window.scrollTo({
+                top:
+                  about.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  document.getElementById("navbar").offsetHeight,
+                behavior: "smooth",
+              });
+          });
+      })();
+    </script>
+  </body>
+</html>
