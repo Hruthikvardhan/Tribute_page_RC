@@ -9,7 +9,7 @@
 ---
 
 ## 🔗 Live Demo
-👉 **[ram-charan-tribute.vercel.app](https://ram-charan-tribute.vercel.app)**
+👉 **[ram-charan-tribute.vercel.app](https://tribute-page-rc.vercel.app/)**
 
 ---
 
