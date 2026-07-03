@@ -1,0 +1,455 @@
+# ✏️ Wireframes Document
+## Project: Ram Charan — The Global Icon Tribute Page
+
+**Document Version:** 1.0  
+**Date:** July 2026  
+**Author:** Hruthik  
+**Type:** Paper Wireframes (ASCII representation)  
+**Status:** ✅ Completed
+
+---
+
+## NOTE
+> Wireframes were drawn on paper first before writing any code.
+> This document represents those paper wireframes in ASCII format for GitHub documentation.
+
+---
+
+## 1. OVERALL PAGE LAYOUT
+
+```
+┌─────────────────────────────────────────────┐
+│                  NAVBAR                      │  ← Fixed top
+├─────────────────────────────────────────────┤
+│                                             │
+│                  HERO                        │  ← Full screen
+│                                             │
+├─────────────────────────────────────────────┤
+│                  ABOUT                       │  ← White bg
+├─────────────────────────────────────────────┤
+│                 TIMELINE                     │  ← Alt bg
+├─────────────────────────────────────────────┤
+│                  QUOTES                      │  ← White bg
+├─────────────────────────────────────────────┤
+│                  AWARDS                      │  ← Alt bg
+├─────────────────────────────────────────────┤
+│                  LEGACY                      │  ← White bg
+├─────────────────────────────────────────────┤
+│                  FOOTER                      │  ← Dark bg
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## 2. NAVBAR — Desktop
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  RC          ABOUT  FILMOGRAPHY  DIALOGUES  │
+│              AWARDS  LEGACY                 │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Notes:
+- RC brand on far left
+- Nav links on far right
+- Fixed position — stays on top while scrolling
+- On scroll → dark glass background appears
+- Hover on link → gold underline slides in from left
+```
+
+---
+
+## 3. NAVBAR — Mobile
+
+```
+┌─────────────────────────────────────────────┐
+│  RC                                    ☰   │
+└─────────────────────────────────────────────┘
+
+When ☰ clicked → Full screen overlay:
+┌─────────────────────────────────────────────┐
+│                                        ✕   │
+│                                             │
+│               ABOUT                         │
+│                                             │
+│             FILMOGRAPHY                     │
+│                                             │
+│             DIALOGUES                       │
+│                                             │
+│               AWARDS                        │
+│                                             │
+│               LEGACY                        │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Notes:
+- Links centered vertically and horizontally
+- Click any link → menu closes + scrolls to section
+- Press Escape → menu closes
+- ☰ animates to ✕ when open
+```
+
+---
+
+## 4. HERO SECTION
+
+```
+┌─────────────────────────────────────────────┐
+│  . * .   .  *   .    *   .   *    .   *  . │  ← particles
+│                                             │
+│            BORN TO RULE THE SCREEN          │  ← eyebrow (red)
+│                                             │
+│           ██████  █████  ██   ██            │
+│           ██  ██  ██  █  ███ ███            │
+│           ██████  █████  ██ █ ██            │
+│           ██  ██  ██  █  ██   ██            │
+│           ██  ██  █████  ██   ██            │
+│                                             │
+│         CHARAN  (gold gradient text)        │
+│                                             │
+│    ACTOR    ·    ENTREPRENEUR    ·          │
+│                   GLOBAL ICON               │
+│                                             │
+│           ─────── ◆ ───────                 │  ← diamond divider
+│                                             │
+│    18+         20+         1         ∞      │
+│  YEARS IN   BLOCKBUSTERS  OSCAR   LEGACY   │
+│  CINEMA                  VICTORY           │
+│                                             │
+│                  SCROLL                     │
+│                    ↓                        │
+│  ─────────────────────────────────────────  │  ← line at 30%
+│                                             │
+│  ─────────────────────────────────────────  │  ← line at 70%
+│                                             │
+│  [RC PHOTO AS DARK OVERLAY BACKGROUND]      │
+└─────────────────────────────────────────────┘
+
+Color Notes:
+- Background: RC photo + dark gradient overlay
+- Name: Gold gradient shimmer
+- Numbers: Crimson red
+- Everything else: muted grey
+```
+
+---
+
+## 5. ABOUT SECTION — Desktop
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│           THE MAN. THE LEGEND.              │  ← gold title
+│         From Tollywood royalty...           │  ← italic subtitle
+│                                             │
+│  ┌─────────────────┐  ┌──────────────────┐ │
+│  │                 │  │                  │ │
+│  │   [RC PHOTO]    │  │ Konidela Ram     │ │
+│  │                 │  │ Charan Teja      │ │
+│  │                 │  │                  │ │
+│  │                 │  │ Born on 27 March │ │
+│  │  [glowing red   │  │ 1985 in Chennai  │ │
+│  │   gold border]  │  │                  │ │
+│  │                 │  │ Charan made his  │ │
+│  │                 │  │ acting debut...  │ │
+│  │                 │  │                  │ │
+│  │                 │  │ ┌──────┬───────┐ │ │
+│  │                 │  │ │Born  │Debut  │ │ │
+│  │                 │  │ ├──────┼───────┤ │ │
+│  │                 │  │ │Value │Value  │ │ │
+│  └─────────────────┘  │ ├──────┼───────┤ │ │
+│  Ram Charan · 1985    │ │Father│Indust.│ │ │
+│                       │ └──────┴───────┘ │ │
+│                       └──────────────────┘ │
+└─────────────────────────────────────────────┘
+
+Layout: CSS Grid — 1fr 1.5fr (photo smaller, text wider)
+Photo card: aspect-ratio 3/4, glowing border animation
+Facts: CSS Grid 2 columns
+```
+
+---
+
+## 6. ABOUT SECTION — Mobile
+
+```
+┌──────────────────────┐
+│                      │
+│  THE MAN. THE LEGEND │
+│  From Tollywood...   │
+│                      │
+│  ┌────────────────┐  │
+│  │                │  │
+│  │   [RC PHOTO]   │  │
+│  │                │  │
+│  └────────────────┘  │
+│  Ram Charan · 1985   │
+│                      │
+│  Konidela Ram        │
+│  Charan Teja         │
+│                      │
+│  Born on 27 March... │
+│                      │
+│  ┌───────┬────────┐  │
+│  │ Born  │ Debut  │  │
+│  ├───────┼────────┤  │
+│  │Father │Industry│  │
+│  └───────┴────────┘  │
+└──────────────────────┘
+
+Layout: Single column — photo stacks above text
+```
+
+---
+
+## 7. TIMELINE SECTION — Desktop
+
+```
+┌─────────────────────────────────────────────┐
+│           BLOCKBUSTER JOURNEY               │
+│      A legacy written in fire...            │
+│                                             │
+│  ┌──────────────┐  │  ┌─────────────────┐  │
+│  │   Chirutha   │  •  │                 │  │  ← odd = left
+│  │     2007     │  │  │                 │  │
+│  └──────────────┘  │  └─────────────────┘  │
+│                    │                        │
+│  ┌─────────────┐   •  ┌──────────────────┐ │
+│  │             │   │  │   Magadheera     │ │  ← even = right
+│  │             │   │  │     2009         │ │
+│  └─────────────┘   │  └──────────────────┘ │
+│                    │                        │
+│  ┌──────────────┐  •  ┌─────────────────┐  │
+│  │    Racha     │  │  │                 │  │  ← odd = left
+│  │     2012     │  │  │                 │  │
+│  └──────────────┘  │  └─────────────────┘  │
+│                    │                        │
+│  ...continues zigzag pattern...             │
+│                    │                        │
+│  ┌─────────────┐   •  ┌──────────────────┐ │
+│  │             │   │  │      RRR         │ │
+│  │             │       │      2022        │ │
+│  └─────────────┘       └──────────────────┘ │
+└─────────────────────────────────────────────┘
+
+Spine line: red → gold → red gradient
+Dots: red fill, gold border
+Cards: dark bg, gold border on hover, lifts up
+```
+
+---
+
+## 8. TIMELINE SECTION — Mobile
+
+```
+┌──────────────────────┐
+│   BLOCKBUSTER        │
+│      JOURNEY         │
+│                      │
+│ • ┌──────────────┐   │
+│ │ │  Chirutha    │   │
+│ │ │  2007        │   │
+│ │ └──────────────┘   │
+│ │                    │
+│ • ┌──────────────┐   │
+│ │ │ Magadheera   │   │
+│ │ │  2009        │   │
+│ │ └──────────────┘   │
+│ ...                  │
+└──────────────────────┘
+
+Layout: Single column, spine moves to left (20px)
+All cards align to right of spine
+```
+
+---
+
+## 9. QUOTES SECTION
+
+```
+┌─────────────────────────────────────────────┐
+│              WORDS THAT ECHO                │
+│      Iconic dialogues that fans...          │
+│                                             │
+│  ┌─────────────────────────────────────┐    │
+│  │ " (faint background)                │    │
+│  │                                     │    │
+│  │  "Pulini pattukovalante vetagadu    │    │  ← featured
+│  │   kaavali. Aa pani cheyyagaligedi   │    │    full width
+│  │   okkade saar!"                     │    │
+│  │                                     │    │
+│  │  — RRR — Alluri Sitarama Raju       │    │
+│  └─────────────────────────────────────┘    │
+│                                             │
+│  ┌──────────────┐  ┌──────────────────┐     │
+│  │ "            │  │ "                │     │
+│  │ Naa peru     │  │ Okkokarini kaadu │     │
+│  │ Chitti Babu  │  │ Sarkhan vanda    │     │
+│  │              │  │ mandini...       │     │
+│  │ — Rangasth.  │  │ — Magadheera    │     │
+│  └──────────────┘  └──────────────────┘     │
+│                                             │
+│             ┌──────────────┐                │
+│             │ "            │                │
+│             │ Meru anta    │                │
+│             │ nenu adanani │                │
+│             │ — Peddi      │                │
+│             └──────────────┘                │
+└─────────────────────────────────────────────┘
+
+Featured card: spans all columns (grid-column: 1 / -1)
+Other cards: auto-fit minmax(300px, 1fr)
+Hover: lifts 5px, gold glow, top color bar appears
+```
+
+---
+
+## 10. AWARDS SECTION
+
+```
+┌─────────────────────────────────────────────┐
+│             HONOURS & GLORY                 │
+│      A trophy cabinet that spans...         │
+│                                             │
+│  ┌──────────────┐  ┌──────────────────┐     │
+│  │ 🏆           │  │ 🎬               │     │
+│  │ Academy      │  │ Filmfare         │     │
+│  │ Award Oscar  │  │ Best Actor       │     │
+│  │ 2023         │  │ 2019             │     │
+│  └──────────────┘  └──────────────────┘     │
+│                                             │
+│  ┌──────────────┐  ┌──────────────────┐     │
+│  │ 🌟           │  │ 🥇               │     │
+│  │ SIIMA        │  │ Golden Globe     │     │
+│  │ Best Actor   │  │ Non-English      │     │
+│  └──────────────┘  └──────────────────┘     │
+│                                             │
+│  ... more cards ...                         │
+└─────────────────────────────────────────────┘
+
+Layout: auto-fit minmax(260px, 1fr)
+Each card: flex row — icon on left, text on right
+Hover: lifts 3px, gold border and glow
+```
+
+---
+
+## 11. LEGACY SECTION
+
+```
+┌─────────────────────────────────────────────┐
+│          LEGACY & GLOBAL IMPACT             │
+│       The torch that lit Indian...          │
+│                                             │
+│  ┌────────────────────┐  ┌───────────────┐  │
+│  │                    │  │  ┌─────┬────┐ │  │
+│  │ Beyond Tollywood.  │  │  │₹1200│ 95+│ │  │
+│  │ Beyond Borders.    │  │  │  Cr │    │ │  │
+│  │                    │  │  ├─────┼────┤ │  │
+│  │ Ram Charan's       │  │  │ 20+ │ 1B+│ │  │
+│  │ career arc is...   │  │  │     │    │ │  │
+│  │                    │  │  └─────┴────┘ │  │
+│  │ • RRR highest      │  │               │  │
+│  │ • Naatu Naatu      │  │  ┌───────────┐│  │
+│  │ • Hyderabad FC     │  │  │🏆 12 March││  │
+│  │ • Konidela Prod.   │  │  │ 2023 Oscar││  │
+│  │ • Global festivals │  │  └───────────┘│  │
+│  │ • Philanthropist   │  └───────────────┘  │
+│  └────────────────────┘                     │
+└─────────────────────────────────────────────┘
+
+Layout: CSS Grid 1.2fr 1fr
+Stats: 2x2 grid inside right panel
+Oscar callout: spans both stat columns
+```
+
+---
+
+## 12. FOOTER
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  Ram Charan     Quick Links    More Info    │
+│                                             │
+│  A tribute to   • About        • Wikipedia  │
+│  Tollywood's    • Filmography  • IMDb        │
+│  Global Icon    • Dialogues    • Instagram   │
+│                 • Awards       • Twitter     │
+│                 • Legacy                    │
+│                                             │
+│ ─────────────────────────────────────────── │
+│                                             │
+│  © 2026 Ram Charan Tribute      IG TW DB   │
+│  Fan Project — Not official.               │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Desktop: 3 columns (1.5fr 1fr 1fr)
+Mobile: Single column stacked
+```
+
+---
+
+## 13. COLOR SCHEME REFERENCE
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  BACKGROUNDS                                │
+│  ■ #0a0a0b  → Main background (darkest)    │
+│  ■ #0f0f12  → Secondary (alt sections)     │
+│  ■ #141418  → Cards                        │
+│  ■ #1a1a20  → Card hover                   │
+│                                             │
+│  BRAND COLORS                               │
+│  🔴 #c0392b  → Crimson (accents, years)    │
+│  🔴 #8b0000  → Deep crimson (gradients)    │
+│  🟡 #d4af37  → Gold (headings, borders)    │
+│  🟡 #f0d060  → Gold light (shimmer)        │
+│  🟡 #f5e07a  → Gold pale (gradient text)  │
+│                                             │
+│  TEXT                                       │
+│  ■ #e8e4da  → Main text                    │
+│  ■ #9a9186  → Muted text                   │
+│  ■ #5a564f  → Dim text (labels)            │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## 14. TYPOGRAPHY SCALE
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  FONTS USED                                 │
+│  ┌─────────────────────────────────────┐    │
+│  │ Cinzel Decorative  → RAM CHARAN     │    │
+│  │ (Display / Royal)    name only      │    │
+│  └─────────────────────────────────────┘    │
+│  ┌─────────────────────────────────────┐    │
+│  │ Cinzel             → Headings, Nav  │    │
+│  │ (Heading / Classic)  Subheadings    │    │
+│  └─────────────────────────────────────┘    │
+│  ┌─────────────────────────────────────┐    │
+│  │ Lato               → Body text      │    │
+│  │ (Body / Modern)      Paragraphs     │    │
+│  └─────────────────────────────────────┘    │
+│                                             │
+│  SIZE SCALE                                 │
+│  Hero name   : clamp(3rem, 10vw, 7.5rem)   │
+│  Section title: clamp(1.8rem, 4vw, 2.8rem) │
+│  About title : clamp(1.4rem, 3vw, 2rem)    │
+│  Body text   : 1.02rem                     │
+│  Small label : 0.6rem                      │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+*Wireframes by: Hruthik | Originally drawn on paper | Digitized for documentation*
